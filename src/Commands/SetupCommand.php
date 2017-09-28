@@ -72,6 +72,14 @@ class SetupCommand extends Command
                 'command' => 'optimize',
                 'params' => [],
             ],
+            [
+                'description' => 'Publish config',
+                'command' => 'vendor:publish',
+                'params' => [
+                    '--provider' => 'InetStudio\SimpleCounters\SimpleCountersServiceProvider',
+                    '--tag' => 'config',
+                ],
+            ],
         ];
     }
 }

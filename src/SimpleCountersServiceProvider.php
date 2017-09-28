@@ -8,6 +8,10 @@ class SimpleCountersServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../config/counters.php' => config_path('counters.php'),
+        ], 'config');
+
         if ($this->app->runningInConsole()) {
             if (! class_exists('CreateCountersTables')) {
                 $timestamp = date('Y_m_d_His', time());

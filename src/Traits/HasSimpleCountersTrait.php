@@ -18,25 +18,29 @@ trait HasSimpleCountersTrait
 
     public function incrementCount($type = '')
     {
-        if ($this->counters()->where('type', $type)->count() == 0) {
+        if (config('counters.enabled')) {
+            if ($this->counters()->where('type', $type)->count() == 0) {
 
-            $counter = new SimpleCounterModel();
+                $counter = new SimpleCounterModel();
 
-            $counter->type = $type;
-            $counter->counter = 1;
+                $counter->type = $type;
+                $counter->counter = 1;
 
-            $this->counters()->save($counter);
-        } else {
-            $this->counters()->where('type', $type)->increment('counter');
+                $this->counters()->save($counter);
+            } else {
+                $this->counters()->where('type', $type)->increment('counter');
+            }
         }
     }
 
     public function decrementCount($type = '')
     {
-        if ($this->counters()->where('type', $type)->count() == 0) {
-            return;
-        } else {
-            $this->counters()->where('type', $type)->decrement('counter');
+        if (config('counters.enabled')) {
+            if ($this->counters()->where('type', $type)->count() == 0) {
+                return;
+            } else {
+                $this->counters()->where('type', $type)->decrement('counter');
+            }
         }
     }
 
