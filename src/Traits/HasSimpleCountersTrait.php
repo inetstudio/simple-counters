@@ -19,6 +19,11 @@ trait HasSimpleCountersTrait
     public function incrementCount($type = '')
     {
         if (config('counters.enabled')) {
+
+            if (config('counters.availableTypes') && ! in_array($type, config('counters.availableTypes'))) {
+                return;
+            }
+
             if ($this->counters()->where('type', $type)->count() == 0) {
 
                 $counter = new SimpleCounterModel();
@@ -36,6 +41,11 @@ trait HasSimpleCountersTrait
     public function decrementCount($type = '')
     {
         if (config('counters.enabled')) {
+
+            if (config('counters.availableTypes') && ! in_array($type, config('counters.availableTypes'))) {
+                return;
+            }
+            
             if ($this->counters()->where('type', $type)->count() == 0) {
                 return;
             } else {

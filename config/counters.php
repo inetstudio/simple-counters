@@ -7,4 +7,7 @@ return [
      */
     'enabled' => false,
 
+    'availableTypes' => [
+
+    ],
 ];
