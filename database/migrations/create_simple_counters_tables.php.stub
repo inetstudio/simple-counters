@@ -1,0 +1,24 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateSimpleCountersTables extends Migration
+{
+    public function up()
+    {
+        Schema::create('simple_counters', function (Blueprint $table) {
+            $table->increments('id');
+            $table->morphs('countable');
+            $table->string('type')->default('');
+            $table->bigInteger('counter')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    public function down()
+    {
+        Schema::drop('simple_counters');
+    }
+}

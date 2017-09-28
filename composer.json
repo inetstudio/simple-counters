@@ -1,0 +1,17 @@
+{
+    "name": "inetstudio/simple-counters",
+    "description": "Package for counters",
+    "homepage": "https://github.com/inetstudio/simple-counters",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Konstantin Bukin",
+        "email": "bukin@inetstudio.ru"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "InetStudio\\SimpleCounters\\": "src/"
+      }
+    }
+}
