@@ -13,5 +13,12 @@
       "psr-4": {
         "InetStudio\\SimpleCounters\\": "src/"
       }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "InetStudio\\SimpleCounters\\SimpleCountersServiceProvider"
+        ]
+      }
     }
 }

@@ -36,6 +36,11 @@ class SimpleCounterModel extends Model
         'deleted_at',
     ];
 
+    /**
+     * Получаем связанную модель.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
     public function countable()
     {
         return $this->morphTo();
