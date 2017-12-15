@@ -1,6 +1,6 @@
 <?php
 
-namespace InetStudio\SimpleCounters\Traits;
+namespace InetStudio\SimpleCounters\Models\Traits;
 
 use InetStudio\SimpleCounters\Models\SimpleCounterModel;
 
