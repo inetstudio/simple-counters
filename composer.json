@@ -1,24 +1,30 @@
 {
-    "name": "inetstudio/simple-counters",
-    "description": "Package for counters",
-    "homepage": "https://github.com/inetstudio/simple-counters",
-    "license": "MIT",
-    "authors": [
-      {
-        "name": "Konstantin Bukin",
-        "email": "bukin@inetstudio.ru"
-      }
-    ],
-    "autoload": {
-      "psr-4": {
-        "InetStudio\\SimpleCounters\\": "src/"
-      }
-    },
-    "extra": {
-      "laravel": {
-        "providers": [
-          "InetStudio\\SimpleCounters\\Providers\\SimpleCountersServiceProvider"
-        ]
-      }
+  "name": "inetstudio/simple-counters",
+  "description": "Package for counters",
+  "homepage": "https://github.com/inetstudio/simple-counters",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konstantin Bukin",
+      "email": "bukin@inetstudio.ru"
     }
+  ],
+  "require": {
+    "inetstudio/admin-panel": "1.8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "InetStudio\\SimpleCounters\\": "package/src",
+      "InetStudio\\SimpleCounters\\Counters\\": "entities/counters/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "InetStudio\\SimpleCounters\\Providers\\ServiceProvider",
+        "InetStudio\\SimpleCounters\\Counters\\Providers\\BindingsServiceProvider",
+        "InetStudio\\SimpleCounters\\Counters\\Providers\\ServiceProvider"
+      ]
+    }
+  }
 }

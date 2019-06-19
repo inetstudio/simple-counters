@@ -3,10 +3,8 @@
 return [
 
     /*
-     * Включить?
+     * Доступные типы счетчиков.
      */
-    'enabled' => false,
-
     'availableTypes' => [
 
     ],
