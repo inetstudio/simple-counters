@@ -273,7 +273,7 @@ trait HasSimpleCountersTrait
             return $this;
         }
 
-        if ($this->counters()->where('type', $type)->first()) {
+        if (! $this->counters()->where('type', $type)->first()) {
             $this->counters()->create(
                 [
                     'type' => $type,
