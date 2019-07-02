@@ -117,7 +117,6 @@ class CounterModel extends Model implements CounterModelContract
         return self::ENTITY_TYPE;
     }
 
-
     /**
      * Полиморфное отношение с остальными моделями.
      *
