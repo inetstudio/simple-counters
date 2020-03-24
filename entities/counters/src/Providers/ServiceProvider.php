@@ -35,8 +35,6 @@ class ServiceProvider extends BaseServiceProvider
 
     /**
      * Регистрация ресурсов.
-     *
-     * @return void
      */
     protected function registerPublishes(): void
     {
