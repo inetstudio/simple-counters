@@ -110,7 +110,7 @@ trait HasSimpleCountersTrait
     public function scopeWithAllCounters(Builder $query, $counters): Builder
     {
         $counters = $this->isCounterStringBased($counters)
-            ? $counters : $this->hydrateCounters($counters)->pluck('type');
+            ? $counters : $this->hydrateCounters($counters)->pluck('type')->toArray();
 
         collect($counters)->each(
             function ($counterItem) use ($query) {
@@ -139,7 +139,7 @@ trait HasSimpleCountersTrait
     public function scopeWithAnyCounters(Builder $query, $counters): Builder
     {
         $counters = $this->isCounterStringBased($counters)
-            ? $counters : $this->hydrateCounters($counters)->pluck('key');
+            ? $counters : $this->hydrateCounters($counters)->pluck('key')->toArray();
 
         return $query->whereHas(
             'counters',
@@ -177,7 +177,7 @@ trait HasSimpleCountersTrait
     public function scopeWithoutCounter(Builder $query, $counter): Builder
     {
         $counter = $this->isCounterStringBased($counter)
-            ? $counter : $this->hydrateCounters($counter)->pluck('type');
+            ? $counter : $this->hydrateCounters($counter)->pluck('type')->toArray();
 
         return $query->whereDoesntHave(
             'counters',
